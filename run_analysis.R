@@ -1,5 +1,3 @@
-setwd("C:\\Users\\User\\Documents\\GetAndClean")
-
 ##	Removing golbal environmental variables
 
 rm(list=ls())
@@ -12,6 +10,8 @@ library(data.table)
 # 		The library where the results will be
 
 if(!file.exists("./out")){dir.create("./out")}
+
+##		Libraries names
 
 mainLibrary <- ".\\UCI HAR Dataset\\"
 testLibrary <- ".\\UCI HAR Dataset\\test\\"
