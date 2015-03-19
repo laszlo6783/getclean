@@ -1,3 +1,5 @@
+setwd("C:\\Users\\User\\Documents\\GetAndClean")
+
 ##	Removing golbal environmental variables
 
 rm(list=ls())
@@ -75,23 +77,13 @@ rm(xtest)
 
 x$activity <- factor(x$activity,levels = levels(x$activity),labels=activityX)
 
+newLabels1 <- names(x)[grep("mean()",names(x))]
+newLabels2 <- names(x)[grep("std()",names(x))]
+xn <-c(newLabels1,newLabels2)
 
-xNew <- x[,1:8,with=FALSE]
-xNew <- cbind(xNew,x[,43:48,with=FALSE])
-xNew <- cbind(xNew,x[,83:88,with=FALSE])
-xNew <- cbind(xNew,x[,123:128,with=FALSE])
-xNew <- cbind(xNew,x[,163:168,with=FALSE])
-xNew <- cbind(xNew,x[,203:206,with=FALSE])
-xNew <- cbind(xNew,x[,216:217,with=FALSE])
-xNew <- cbind(xNew,x[,229:230,with=FALSE])
-xNew <- cbind(xNew,x[,242:243,with=FALSE])
-xNew <- cbind(xNew,x[,255:256,with=FALSE])
-xNew <- cbind(xNew,x[,268:273,with=FALSE])
-xNew <- cbind(xNew,x[,347:352,with=FALSE])
-xNew <- cbind(xNew,x[,426:431,with=FALSE])
-xNew <- cbind(xNew,x[,505:506,with=FALSE])
-xNew <- cbind(xNew,x[,531:532,with=FALSE])
-xNew <- cbind(xNew,x[,544:545,with=FALSE])
+
+xNew <- x[,1:2,with=FALSE]
+xNew <- cbind(xNew,x[,xn,with=FALSE])
 
 rm(x)
 rm(subte)
@@ -110,3 +102,5 @@ xTidy <- xNew[,lapply(.SD,mean),by = c("subjectID","activity")]
 
 write.table(xTidy,"./out/xTidy.txt",row.name=FALSE)
 write.table(xNew,"./out/xNew.txt",row.name=FALSE)
+
+
