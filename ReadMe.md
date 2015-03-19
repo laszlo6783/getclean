@@ -11,7 +11,7 @@
  8. I add two columns to the beginning of the test and train data, the subjectID and the activity.
  9. Next step is to MERGE the test and the train data in x table.
 10. After merging I Delete the tables that became unnecessary from the Global environment for Memory Safe
-11. I select the columns that contains mean and standard deviation values from the x table to xNew table.
+11. I select the columns that contains mean() and stdev() standard deviation values from the x table to xNew table.
 12. Using descriptive activity names in the dataset, WALKING,...LAYING in the 2nd column, activity.
 13. I also delete unnecessary tables.
 14. In this moment I reach step 4 of the instructions.
