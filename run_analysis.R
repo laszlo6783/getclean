@@ -1,3 +1,5 @@
+##      setwd("C:\\Users\\User\\Documents\\GetAndClean")
+
 ##	Removing golbal environmental variables
 
 rm(list=ls())
@@ -10,8 +12,6 @@ library(data.table)
 # 		The library where the results will be
 
 if(!file.exists("./out")){dir.create("./out")}
-
-##		Libraries names
 
 mainLibrary <- ".\\UCI HAR Dataset\\"
 testLibrary <- ".\\UCI HAR Dataset\\test\\"
@@ -49,8 +49,6 @@ xtrain <- as.data.table(read.table(xtrainFN,head=F))
 ytest <- as.data.table(read.table(ytestFN,head=F))
 ytrain <- as.data.table(read.table(ytrainFN,head=F))
 
-subte$V1 <- factor(subte$V1)
-subtr$V1 <- factor(subtr$V1)
 ytest$V1 <- factor(ytest$V1)
 ytrain$V1 <- factor(ytrain$V1)
 
@@ -91,8 +89,6 @@ rm(subtr)
 rm(ytest)
 rm(ytrain)
 rm(activityFN)
-
-tidyColnames <- paste0("average_",names(xNew)[3:68])
 
 #		This transforms the data in tidy data we want
 
